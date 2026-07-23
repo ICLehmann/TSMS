@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSMS_Machine.Abstractions",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSMS_Machine.Sim", "TSMS_Core\Modules\Machine\TSMS_Machine.Sim\TSMS_Machine.Sim.csproj", "{7E54A734-424A-4367-B2C5-63B96B298459}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSMS_Core.GuiUdp", "TSMS_Core\TSMS_Core.GuiUdp\TSMS_Core.GuiUdp.csproj", "{0E4A12CD-E744-43FB-8894-5870CD5165EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSMS_Core.GuiUdp", "TSMS_Core\GUI\TSMS_Core.GuiUdp\TSMS_Core.GuiUdp.csproj", "{0E4A12CD-E744-43FB-8894-5870CD5165EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSMS_Meter.Abstractions", "TSMS_Core\Modules\Meter\TSMS_Meter.Abstractions\TSMS_Meter.Abstractions.csproj", "{A8D5E79D-3370-4C15-A387-6A3DE608EAE4}"
 EndProject

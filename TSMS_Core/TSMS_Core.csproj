@@ -3,17 +3,17 @@
   <ItemGroup>
     <ProjectReference Include="Modules\Machine\TSMS_Machine.Abstractions\TSMS_Machine.Abstractions.csproj" />
     <ProjectReference Include="Modules\Machine\TSMS_Machine.Sim\TSMS_Machine.Sim.csproj" />
-    <ProjectReference Include="TSMS_Core.GuiUdp\TSMS_Core.GuiUdp.csproj" />
+    <ProjectReference Include="GUI\TSMS_Core.GuiUdp\TSMS_Core.GuiUdp.csproj" />
     <ProjectReference Include="Modules\Meter\TSMS_Meter.Abstractions\TSMS_Meter.Abstractions.csproj" />
     <ProjectReference Include="Modules\Meter\TSMS_Meter.Sim\TSMS_Meter.Sim.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="TSMS_Core.GuiUdp\**\*.cs" />
+    <Compile Remove="GUI\TSMS_Core.GuiUdp\**\*.cs" />
     <Compile Remove="Modules\**\*.cs" />
-    <EmbeddedResource Remove="TSMS_Core.GuiUdp\**\*" />
+    <EmbeddedResource Remove="GUI\TSMS_Core.GuiUdp\**\*" />
     <EmbeddedResource Remove="Modules\**\*" />
-    <None Remove="TSMS_Core.GuiUdp\**\*" />
+    <None Remove="GUI\TSMS_Core.GuiUdp\**\*" />
     <None Remove="Modules\**\*" />
   </ItemGroup>
 
