@@ -1,0 +1,65 @@
+﻿<Window x:Class="TSMS_Vis.CompWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TSMS_Vis"
+        xmlns:uc="clr-namespace:TSMS_Vis.UserControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        Title="Compensation Mode" Height="260" Width="300" ResizeMode="NoResize" Topmost="True" WindowStyle="None">
+
+    <Window.Resources>
+        <ResourceDictionary Source="TSMS_Style.xaml" />
+    </Window.Resources>
+
+    <Grid Background="Gray">
+        <StackPanel Margin="10" Background="White">
+            <Label VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Compensation Status</Label>
+            <StackPanel Margin="15">
+                <WrapPanel HorizontalAlignment="Right" Margin="5,0,5,0">
+                    <Label  x:Name="cbComp1_Label" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Comp Label 1</Label>
+                    <uc:UC_Spinner x:Name="Spinner1" Height="12" Width="12" Margin ="10,0,15,0" Show="False"/>
+                    <!--<CheckBox x:Name="cbComp1_Run" Margin ="10,0,15,0" Template="{StaticResource YellowLED}" IsChecked="False"/>-->
+                    <CheckBox x:Name="cbComp1_Ok" Margin ="5" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                    <CheckBox x:Name="cbComp1_Error" Margin ="5" Style="{StaticResource RedLED}" IsChecked="False"/>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" Margin="5,0,5,0">
+                    <Label  x:Name="cbComp2_Label" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Comp Label 2</Label>
+                    <uc:UC_Spinner x:Name="Spinner2" Height="12" Width="12" Margin ="10,0,15,0" Show="False"/>
+                    <!--<CheckBox x:Name="cbComp2_Run" Margin ="10,0,15,0" Template="{StaticResource YellowLED}" IsChecked="False"/>-->
+                    <CheckBox x:Name="cbComp2_Ok" Margin ="5" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                    <CheckBox x:Name="cbComp2_Error" Margin ="5" Style="{StaticResource RedLED}" IsChecked="False"/>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" Margin="5,0,5,0">
+                    <Label  x:Name="cbComp3_Label" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Comp Label 3</Label>
+                    <uc:UC_Spinner x:Name="Spinner3" Height="12" Width="12" Margin ="10,0,15,0" Show="False"/>
+                    <!--<CheckBox x:Name="cbComp3_Run" Margin ="10,0,15,0" Template="{StaticResource YellowLED}" IsChecked="False"/>-->
+                    <CheckBox x:Name="cbComp3_Ok" Margin ="5" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                    <CheckBox x:Name="cbComp3_Error" Margin ="5" Style="{StaticResource RedLED}" IsChecked="False"/>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" Margin="5,0,5,0">
+                    <Label  x:Name="cbComp4_Label" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Comp Label 4</Label>
+                    <!--<CheckBox x:Name="cbComp4_Run" Margin ="10,0,15,0" Template="{StaticResource YellowLED}" IsChecked="False"/>-->
+                    <uc:UC_Spinner x:Name="Spinner4" Height="12" Width="12" Margin ="10,0,15,0" Show="False"/>
+                    <CheckBox x:Name="cbComp4_Ok" Margin ="5" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                    <CheckBox x:Name="cbComp4_Error" Margin ="5" Style="{StaticResource RedLED}" IsChecked="False"/>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" Margin="5,0,5,0">
+                    <Label  x:Name="cbComp5_Label" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Comp Label 5</Label>
+                    <!--<CheckBox x:Name="cbComp5_Run" Margin ="10,0,15,0" Template="{StaticResource YellowLED}" IsChecked="False"/>-->
+                    <uc:UC_Spinner x:Name="Spinner5" Height="12" Width="12" Margin ="10,0,15,0" Show="False"/>
+                    <CheckBox x:Name="cbComp5_Ok" Margin ="5" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                    <CheckBox x:Name="cbComp5_Error" Margin ="5" Style="{StaticResource RedLED}" IsChecked="False"/>
+                </WrapPanel>
+                <WrapPanel HorizontalAlignment="Right" Margin="5,0,5,0">
+                    <Label  x:Name="cbComp6_Label" VerticalAlignment="Center" FontSize="14" FontWeight="Bold">Comp Label 6</Label>
+                    <!--<CheckBox x:Name="cbComp6_Run" Margin ="10,0,15,0" Template="{StaticResource YellowLED}" IsChecked="False"/>-->
+                    <uc:UC_Spinner x:Name="Spinner6" Height="12" Width="12" Margin ="10,0,15,0" Show="False"/>
+                    <CheckBox x:Name="cbComp6_Ok" Margin ="5" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                    <CheckBox x:Name="cbComp6_Error" Margin ="5" Style="{StaticResource RedLED}" IsChecked="False"/>
+                </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

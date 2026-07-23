@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="REPORTTITLE" xml:space="preserve">
+    <value>Test Report ACT1210</value>
+  </data>
+  <data name="REPORTSUBTITLE" xml:space="preserve">
+    <value>Jegyzőkönyv / Test Report</value>
+  </data>
+  <data name="PAGE" xml:space="preserve">
+    <value>Oldal</value>
+  </data>
+  <data name="PAGE_OF" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="PAGESAMPLE" xml:space="preserve">
+    <value>Oldal x / 6</value>
+  </data>
+  <data name="MACHINENUMBER" xml:space="preserve">
+    <value>Gép / Machine No.:</value>
+  </data>
+  <data name="PARTNUMBER" xml:space="preserve">
+    <value>Anyagszám / Part No.:</value>
+  </data>
+  <data name="LOTNUMBER" xml:space="preserve">
+    <value>Los szám / Lot No.:</value>
+  </data>
+  <data name="LINEID" xml:space="preserve">
+    <value>Sor / Line:</value>
+  </data>
+  <data name="STARTDATE" xml:space="preserve">
+    <value>Kezdés / Start:</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>Állapot / State:</value>
+  </data>
+  <data name="PIECESSHORT" xml:space="preserve">
+    <value>Db./Pcs.</value>
+  </data>
+  <data name="HINT" xml:space="preserve">
+    <value>Útmutatás / Hint</value>
+  </data>
+  <data name="HIGH_LC" xml:space="preserve">
+    <value>magas</value>
+  </data>
+  <data name="LOW_LC" xml:space="preserve">
+    <value>alacsony</value>
+  </data>
+  <data name="TOTAL" xml:space="preserve">
+    <value>Összesen / Total</value>
+  </data>
+  <data name="QUAL_PASSED" xml:space="preserve">
+    <value>Jó / Passed</value>
+  </data>
+  <data name="QUAL_FAILED" xml:space="preserve">
+    <value>Hibás / Failed</value>
+  </data>
+  <data name="QUAL_EL_FAILED" xml:space="preserve">
+    <value>EL Hibás / Failed</value>
+  </data>
+  <data name="QUAL_EL_SYSTEM_FAILED" xml:space="preserve">
+    <value>EL Rendszerhiba / System Failed</value>
+  </data>
+  <data name="QUAL_AOI_FAILED_TOTAL" xml:space="preserve">
+    <value>AOI Hibás összesen / Failed total</value>
+  </data>
+  <data name="FROM_LC" xml:space="preserve">
+    <value>ettől</value>
+  </data>
+  <data name="TO_LC" xml:space="preserve">
+    <value>eddig</value>
+  </data>
+  <data name="QUANTITY" xml:space="preserve">
+    <value>Mennyiség</value>
+  </data>
+  <data name="MEASUREMENT" xml:space="preserve">
+    <value>Mérés</value>
+  </data>
+  <data name="UNIT" xml:space="preserve">
+    <value>Egység</value>
+  </data>
+  <data name="NOMINALVAL" xml:space="preserve">
+    <value>Névérték</value>
+  </data>
+  <data name="LOWERLIMIT" xml:space="preserve">
+    <value>Alsó határ</value>
+  </data>
+  <data name="UPPERLIMIT" xml:space="preserve">
+    <value>Felső határ</value>
+  </data>
+  <data name="MINIMUM" xml:space="preserve">
+    <value>Minimum</value>
+  </data>
+  <data name="MAXIMAL" xml:space="preserve">
+    <value>Maximum</value>
+  </data>
+  <data name="STANDARDDEVIATION" xml:space="preserve">
+    <value>Szórás</value>
+  </data>
+  <data name="MEASUREMENTVALUES" xml:space="preserve">
+    <value>Mérési értékek / Measurement values</value>
+  </data>
+  <data name="NARROWING" xml:space="preserve">
+    <value>Szűkítés / Narrowing</value>
+  </data>
+  <data name="NARROWINGMETHOD" xml:space="preserve">
+    <value>Szűkítési mód / Narrowing method:</value>
+  </data>
+  <data name="NARROWINGMETHODDATA" xml:space="preserve">
+    <value>&lt;mode&gt;; alsó határ / lower limit: &lt;LL&gt;σ; felső határ / upper limit: &lt;UL&gt;σ</value>
+  </data>
+  <data name="ERRORSUMMARY" xml:space="preserve">
+    <value>Hibastatisztika / Error summary</value>
+  </data>
+  <data name="INDUCTANCE" xml:space="preserve">
+    <value>Induktivitás / Inductance</value>
+  </data>
+  <data name="IMPEDANCE" xml:space="preserve">
+    <value>Impedancia / Impedance</value>
+  </data>
+  <data name="RESISTANCE_R1" xml:space="preserve">
+    <value>Ellenállás / Resistance R1</value>
+  </data>
+  <data name="RESISTANCE_R2" xml:space="preserve">
+    <value>Ellenállás / Resistance R2</value>
+  </data>
+  <data name="PROBABILITY" xml:space="preserve">
+    <value>Valószínűség / Probability</value>
+  </data>
+  <data name="REPORTDATA" xml:space="preserve">
+    <value>Adatok / Data:</value>
+  </data>
+  <data name="REPORTDATA_COMPLETE_LOT" xml:space="preserve">
+    <value>Teljes Los / Complete LOT</value>
+  </data>
+  <data name="REPORTDATA_PARTIAL_LOT" xml:space="preserve">
+    <value>Részleges Los / Partial LOT</value>
+  </data>
+  <data name="BIN1_TITLE" xml:space="preserve">
+    <value>ISO magas/alacsony kieső</value>
+  </data>
+  <data name="MACHINECOUNTERS" xml:space="preserve">
+    <value>Kidobó számlálók / Bin counters</value>
+  </data>
+  <data name="MACHINECNT_TOTAL" xml:space="preserve">
+    <value>Összesen / Total</value>
+  </data>
+  <data name="MACHINECNT_GOOD" xml:space="preserve">
+    <value>Összes jó / Total passed</value>
+  </data>
+  <data name="MACHINECNT_LASTBIN" xml:space="preserve">
+    <value>Maradék tároló / Purge bucket</value>
+  </data>
+  <data name="MACHINECNT_GOODBIN" xml:space="preserve">
+    <value>Jó tároló / Good bucket</value>
+  </data>
+  <data name="NARROWING_SECTIONS" xml:space="preserve">
+    <value>Szűkítési szekciók / Narrowing sections</value>
+  </data>
+  <data name="NARROWING_ENDPROD" xml:space="preserve">
+    <value>eddig</value>
+  </data>
+  <data name="NARROWING_LL_SIGMA" xml:space="preserve">
+    <value>Szigma -</value>
+  </data>
+  <data name="NARROWING_MODE" xml:space="preserve">
+    <value>Mód / Mode</value>
+  </data>
+  <data name="NARROWING_MODE_NOPAT" xml:space="preserve">
+    <value>Nincs szűkítve</value>
+  </data>
+  <data name="NARROWING_MODE_STDEV" xml:space="preserve">
+    <value>Szórás</value>
+  </data>
+  <data name="NARROWING_MODE_UNKNOWN" xml:space="preserve">
+    <value>Ismeretlen</value>
+  </data>
+  <data name="NARROWING_PART_TO_END" xml:space="preserve">
+    <value>végig</value>
+  </data>
+  <data name="NARROWING_SAMPLECNT" xml:space="preserve">
+    <value>Minták száma</value>
+  </data>
+  <data name="NARROWING_STARTPROD" xml:space="preserve">
+    <value>ettől a terméktől</value>
+  </data>
+  <data name="NARROWING_UL_SIGMA" xml:space="preserve">
+    <value>Szigma +</value>
+  </data>
+  <data name="BIN9_TITLE" xml:space="preserve">
+    <value>AOI 2 kivezető oldal</value>
+  </data>
+  <data name="BIN10_TITLE" xml:space="preserve">
+    <value>AOI 3 hosszú oldal</value>
+  </data>
+  <data name="BIN11_TITLE" xml:space="preserve">
+    <value>AOI 4 alsó oldal</value>
+  </data>
+  <data name="BIN12_TITLE" xml:space="preserve">
+    <value>AOI 5 felső oldal</value>
+  </data>
+  <data name="ERRORINDETAIL" xml:space="preserve">
+    <value>Hibák részletesen / Error in detail</value>
+  </data>
+  <data name="ERRORRATEWARNING" xml:space="preserve">
+    <value>Kérem nézze meg a táblázatot a megnövekedett hibaarány miatt!</value>
+  </data>
+  <data name="ENDDATE" xml:space="preserve">
+    <value>Befejezés / End:</value>
+  </data>
+  <data name="BIN2_TITLE" xml:space="preserve">
+    <value>L magas/alacsony kieső</value>
+  </data>
+  <data name="BIN3_TITLE" xml:space="preserve">
+    <value>Z magas/alacsony kieső</value>
+  </data>
+  <data name="BIN4_TITLE" xml:space="preserve">
+    <value>C magas/alacsony kieső</value>
+  </data>
+  <data name="BIN5_TITLE" xml:space="preserve">
+    <value>R1 magas/alacsony kieső</value>
+  </data>
+  <data name="BIN6_TITLE" xml:space="preserve">
+    <value>R2 magas/alacsony kieső</value>
+  </data>
+  <data name="BIN7_TITLE" xml:space="preserve">
+    <value>Rendszerhiba /Fail System</value>
+  </data>
+  <data name="QUAL_EL_PASSED" xml:space="preserve">
+    <value>EL jó / Passed</value>
+  </data>
+  <data name="EL_TOTAL" xml:space="preserve">
+    <value>EL Összesen / Total</value>
+  </data>
+</root>

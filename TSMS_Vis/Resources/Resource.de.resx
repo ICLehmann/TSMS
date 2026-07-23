@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADVANCED" xml:space="preserve">
+    <value>Erweitert</value>
+  </data>
+  <data name="BTN_CANCEL" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="BTN_PRINT" xml:space="preserve">
+    <value>Bericht speichern ...</value>
+  </data>
+  <data name="BTN_PRINT_LABEL" xml:space="preserve">
+    <value>Etikett drucken</value>
+  </data>
+  <data name="BTN_PRINT_REPORT" xml:space="preserve">
+    <value>Bericht generieren ...</value>
+  </data>
+  <data name="CONNECTION_TO_MASTER" xml:space="preserve">
+    <value>Verbindung zum Master</value>
+  </data>
+  <data name="COUNTER" xml:space="preserve">
+    <value>Zähler</value>
+  </data>
+  <data name="DATABASE" xml:space="preserve">
+    <value>Datenbank</value>
+  </data>
+  <data name="DIGITAL_IO" xml:space="preserve">
+    <value>Dig. Ein-/Ausgänge</value>
+  </data>
+  <data name="ENGLISH" xml:space="preserve">
+    <value>Englisch</value>
+  </data>
+  <data name="GERMAN" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="GOOD" xml:space="preserve">
+    <value>Gut</value>
+  </data>
+  <data name="HUNGARIAN" xml:space="preserve">
+    <value>Ungarisch</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="LINE" xml:space="preserve">
+    <value>Linie</value>
+  </data>
+  <data name="LOT" xml:space="preserve">
+    <value>Los</value>
+  </data>
+  <data name="LOT_INFO" xml:space="preserve">
+    <value>Los-Information</value>
+  </data>
+  <data name="LOT_NUMBER" xml:space="preserve">
+    <value>Los-Nummer</value>
+  </data>
+  <data name="MACHINE" xml:space="preserve">
+    <value>Maschine</value>
+  </data>
+  <data name="MEASUREMENT_DEVICES" xml:space="preserve">
+    <value>Messgeräte</value>
+  </data>
+  <data name="MSG_SWITCH_LANGUAGE" xml:space="preserve">
+    <value>Um die Sprache zu ändern, muss das Programm neu gestartet werden. Jetzt neustarten?</value>
+  </data>
+  <data name="TAB_PROBABILITY" xml:space="preserve">
+    <value>Wahrscheinlichkeit</value>
+  </data>
+  <data name="PRODUCT" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
+  <data name="RS232_COM" xml:space="preserve">
+    <value>RS232 Schnittstelle</value>
+  </data>
+  <data name="START_TIME" xml:space="preserve">
+    <value>Startzeit</value>
+  </data>
+  <data name="STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TEST_PLAN" xml:space="preserve">
+    <value>Testplan</value>
+  </data>
+  <data name="TITLE_PRINT_REPORT" xml:space="preserve">
+    <value>Bericht generieren</value>
+  </data>
+  <data name="TOTAL" xml:space="preserve">
+    <value>Gesamt</value>
+  </data>
+  <data name="BTN_REPRINT_LABEL" xml:space="preserve">
+    <value>Etikett erneut drucken ...</value>
+  </data>
+  <data name="MENU_ITEM_EXIT" xml:space="preserve">
+    <value>_Beenden</value>
+  </data>
+  <data name="MENU_ITEM_FILE" xml:space="preserve">
+    <value>_Datei</value>
+  </data>
+  <data name="MACHINE_SIGNALS" xml:space="preserve">
+    <value>Signale der Maschine</value>
+  </data>
+  <data name="STATE_COMPENSATION" xml:space="preserve">
+    <value>Modus "Compensation"</value>
+  </data>
+  <data name="STATE_DB_ERROR" xml:space="preserve">
+    <value>Datenbankfehler</value>
+  </data>
+  <data name="STATE_DEVICE_ERROR" xml:space="preserve">
+    <value>Messgerätefehler</value>
+  </data>
+  <data name="STATE_IO_ERROR" xml:space="preserve">
+    <value>Kommunikationsfehler</value>
+  </data>
+  <data name="STATE_MEASUREMENT_EVALUATE" xml:space="preserve">
+    <value>Auswertung läuft</value>
+  </data>
+  <data name="STATE_MEASUREMENT_RUNNING" xml:space="preserve">
+    <value>Messung läuft</value>
+  </data>
+  <data name="STATE_READY_FOR_NEW_LOT" xml:space="preserve">
+    <value>Bereit für ein neues Los</value>
+  </data>
+  <data name="STATE_READY_TO_MEASURE" xml:space="preserve">
+    <value>Bereit zur Messung</value>
+  </data>
+  <data name="STATE_RS232_ERROR" xml:space="preserve">
+    <value>RS232 Fehler</value>
+  </data>
+  <data name="STATE_SHUTDOWN" xml:space="preserve">
+    <value>TSMS fährt herunter</value>
+  </data>
+  <data name="TAB_HIST1" xml:space="preserve">
+    <value>Histogramm 1</value>
+  </data>
+  <data name="TAB_HIST2" xml:space="preserve">
+    <value>Histogramm 2</value>
+  </data>
+  <data name="BTN_CLOSE" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="STATE_WAIT_UNTIL_LOT_IN_PROGRESS" xml:space="preserve">
+    <value>Bitte warten, bis das Los läuft</value>
+  </data>
+  <data name="BTN_RESET" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="BTN_RESETZOOM" xml:space="preserve">
+    <value>Reset Zoom</value>
+  </data>
+  <data name="COUNTER_FAIL" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="COUNTER_HIGH" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="COUNTER_LOW" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="COUNTER_NAME" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="COUNTER_PASS" xml:space="preserve">
+    <value>Pass</value>
+  </data>
+  <data name="COUNTER_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="SIG_COMPENSATION" xml:space="preserve">
+    <value>Compensation</value>
+  </data>
+  <data name="SIG_EDUMMY" xml:space="preserve">
+    <value>E-Dummy</value>
+  </data>
+  <data name="SIG_INITIALIZATION" xml:space="preserve">
+    <value>Initialization</value>
+  </data>
+  <data name="SIG_LOT_DISCARD" xml:space="preserve">
+    <value>Lot Discard</value>
+  </data>
+  <data name="SIG_LOT_END" xml:space="preserve">
+    <value>Lot End</value>
+  </data>
+  <data name="SIG_LOT_IN_PROGRESS" xml:space="preserve">
+    <value>Lot In Progress</value>
+  </data>
+  <data name="SIG_LOT_PAUSE" xml:space="preserve">
+    <value>Lot Pause</value>
+  </data>
+  <data name="SIG_LOT_START" xml:space="preserve">
+    <value>Lot Start</value>
+  </data>
+  <data name="SIG_MACHINE_EMPTY" xml:space="preserve">
+    <value>Machine Empty</value>
+  </data>
+  <data name="SIG_MACHINE_READY" xml:space="preserve">
+    <value>Machine Ready</value>
+  </data>
+  <data name="TAB_STATUS" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TSMS_STATUS" xml:space="preserve">
+    <value>TSMS Status</value>
+  </data>
+  <data name="REST_COMPENSTAION" xml:space="preserve">
+    <value>Rest Compensation:</value>
+  </data>
+  <data name="REST_DUMMY" xml:space="preserve">
+    <value>Rest Dummy:</value>
+  </data>
+  <data name="REST_TIME_H" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="BTN_RESTART_PAT" xml:space="preserve">
+    <value>Restart PAT sampling</value>
+  </data>
+  <data name="MSG_PAT_RESTART" xml:space="preserve">
+    <value>Do you really restart the PAT smapling process?</value>
+  </data>
+  <data name="MENU_ITEM_CHARTS" xml:space="preserve">
+    <value>Charts</value>
+  </data>
+  <data name="MENU_ITEM_SHOWPATHISTO" xml:space="preserve">
+    <value>Show PAT narrowed histograms</value>
+  </data>
+  <data name="START_DATE" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="END_DATE" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="REP_LOT_START" xml:space="preserve">
+    <value>LOT start with</value>
+  </data>
+  <data name="REP_QUERY_LOT" xml:space="preserve">
+    <value>Query LOTs</value>
+  </data>
+  <data name="REP_QUERY_FINISHED_LOTS" xml:space="preserve">
+    <value>Query finished LOTs only</value>
+  </data>
+  <data name="BTN_STARTPRINT" xml:space="preserve">
+    <value>Drucken</value>
+  </data>
+  <data name="BTN_REPRINT_LABEL_WND" xml:space="preserve">
+    <value>Etikett erneut drucken</value>
+  </data>
+  <data name="LABEL_CNT" xml:space="preserve">
+    <value>Etikettenzähler</value>
+  </data>
+  <data name="NARROWING_SELECTOR_DLG" xml:space="preserve">
+    <value>Select narrowing section</value>
+  </data>
+  <data name="BTN_SELECT_LOT_SECTION" xml:space="preserve">
+    <value>Selected section</value>
+  </data>
+  <data name="NARROWING_STARTPROD" xml:space="preserve">
+    <value>von Produkt</value>
+  </data>
+  <data name="NARROWING_ENDPROD" xml:space="preserve">
+    <value>bis</value>
+  </data>
+  <data name="NARROWING_MODE" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="NARROWING_SAMPLECNT" xml:space="preserve">
+    <value>No. of Samples</value>
+  </data>
+  <data name="NARROWING_LL_SIGMA" xml:space="preserve">
+    <value>Sigma -</value>
+  </data>
+  <data name="NARROWING_UL_SIGMA" xml:space="preserve">
+    <value>Sigma +</value>
+  </data>
+  <data name="NARROWING_MODE_NOPAT" xml:space="preserve">
+    <value>Not narrowed</value>
+  </data>
+  <data name="NARROWING_PART_TO_END" xml:space="preserve">
+    <value>to end</value>
+  </data>
+  <data name="BTN_SELECT_COMPLETE_LOT" xml:space="preserve">
+    <value>Complete LOT</value>
+  </data>
+  <data name="NARROWING_MODE_STDEV" xml:space="preserve">
+    <value>Std. deviation</value>
+  </data>
+  <data name="NARROWING_MODE_UNKNOWN" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+</root>

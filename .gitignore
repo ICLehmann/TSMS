@@ -1,0 +1,43 @@
+# --- Altes SVN ---
+.svn/
+
+# --- Visual Studio ---
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- Build-Ausgaben ---
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# --- Publish / Installer ---
+publish/
+AppPackages/
+
+# --- Test / Analyse ---
+TestResults/
+
+# --- NuGet ---
+*.nupkg
+*.snupkg
+
+# packages/ vorerst NICHT ignorieren, da TSMS_Vis noch direkt darauf referenziert
+
+# --- Logs / temporäre Dateien ---
+*.log
+*.tmp
+*.temp
+
+# --- ReSharper / Rider / Sonstiges ---
+_ReSharper*/
+*.DotSettings.user
+
+# --- Windows ---
+Thumbs.db
+Desktop.ini

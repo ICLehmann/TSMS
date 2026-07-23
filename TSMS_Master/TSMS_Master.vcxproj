@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c242f669-42ae-4adf-8bfd-c843342a35e6}</ProjectGuid>
+    <RootNamespace>TSMSMaster</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>TSMS_Master</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>NI;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>nidaqmx.lib;ni4882_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <Version>0.01</Version>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="common\Handler.cpp" />
+    <ClCompile Include="common\IniFile.cpp" />
+    <ClCompile Include="common\LaserData.cpp" />
+    <ClCompile Include="common\tcp.cpp" />
+    <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="db\BaseTable.cpp" />
+    <ClCompile Include="db\BufferTable.cpp" />
+    <ClCompile Include="db\ConfigTable.cpp" />
+    <ClCompile Include="db\DBHandler.cpp" />
+    <ClCompile Include="db\LotTable.cpp" />
+    <ClCompile Include="db\PatTable.cpp" />
+    <ClCompile Include="db\SQLConnection.cpp" />
+    <ClCompile Include="db\TestTable.cpp" />
+    <ClCompile Include="db\ValueTable.cpp" />
+    <ClCompile Include="DummyBuffer.cpp" />
+    <ClCompile Include="LotData.cpp" />
+    <ClCompile Include="Machine\ComHandler.cpp" />
+    <ClCompile Include="Machine\DAQmxIO.cpp" />
+    <ClCompile Include="Machine\DIOHandler.cpp" />
+    <ClCompile Include="Machine\RS232.cpp" />
+    <ClCompile Include="Machine\SimIO.cpp" />
+    <ClCompile Include="MeasuredValue.cpp" />
+    <ClCompile Include="Meter\CompensationHandler.cpp" />
+    <ClCompile Include="Meter\DeviceConfig.cpp" />
+    <ClCompile Include="Meter\DeviceHandler.cpp" />
+    <ClCompile Include="Meter\Meter.cpp" />
+    <ClCompile Include="Meter\MeterGPIB.cpp" />
+    <ClCompile Include="Meter\MeterSim.cpp" />
+    <ClCompile Include="Meter\MeterTCP.cpp" />
+    <ClCompile Include="PAThandler.cpp" />
+    <ClCompile Include="ResultBuffer.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="TestConfig.cpp" />
+    <ClCompile Include="TSMS_Master.cpp" />
+    <ClCompile Include="UI\DataToSend.cpp" />
+    <ClCompile Include="UI\UDPReceiver.cpp" />
+    <ClCompile Include="UI\UDPSender.cpp" />
+    <ClCompile Include="UI\UIHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\DateTime.h" />
+    <ClInclude Include="common\Handler.h" />
+    <ClInclude Include="common\IniFile.h" />
+    <ClInclude Include="common\LaserData.h" />
+    <ClInclude Include="common\Logger.h" />
+    <ClInclude Include="common\tcp.h" />
+    <ClInclude Include="const.h" />
+    <ClInclude Include="Counter.h" />
+    <ClInclude Include="db\BaseTable.h" />
+    <ClInclude Include="db\BufferTable.h" />
+    <ClInclude Include="db\ConfigTable.h" />
+    <ClInclude Include="db\DBHandler.h" />
+    <ClInclude Include="db\LotTable.h" />
+    <ClInclude Include="db\PatTable.h" />
+    <ClInclude Include="db\SQLConnection.h" />
+    <ClInclude Include="db\TestTable.h" />
+    <ClInclude Include="db\ValueTable.h" />
+    <ClInclude Include="DummyBuffer.h" />
+    <ClInclude Include="extern\NIDAQmx.h" />
+    <ClInclude Include="LotData.h" />
+    <ClInclude Include="Machine\BaseIO.h" />
+    <ClInclude Include="Machine\ComHandler.h" />
+    <ClInclude Include="Machine\DAQmxIO.h" />
+    <ClInclude Include="Machine\DIOHandler.h" />
+    <ClInclude Include="Machine\RS232.h" />
+    <ClInclude Include="Machine\SimIO.h" />
+    <ClInclude Include="MeasuredValue.h" />
+    <ClInclude Include="Meter\CompensationHandler.h" />
+    <ClInclude Include="Meter\DeviceConfig.h" />
+    <ClInclude Include="Meter\DeviceHandler.h" />
+    <ClInclude Include="Meter\Meter.h" />
+    <ClInclude Include="Meter\MeterGPIB.h" />
+    <ClInclude Include="Meter\MeterSim.h" />
+    <ClInclude Include="Meter\MeterTCP.h" />
+    <ClInclude Include="NI\ni4882.h" />
+    <ClInclude Include="PAThandler.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ResultBuffer.h" />
+    <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="TestConfig.h" />
+    <ClInclude Include="UI\DataToSend.h" />
+    <ClInclude Include="UI\UDPReceiver.h" />
+    <ClInclude Include="UI\UDPSender.h" />
+    <ClInclude Include="UI\UIHandler.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="NI\ni4882_32.lib" />
+    <Library Include="NI\NIDAQmx.lib" />
+    <Library Include="NI\visa32.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

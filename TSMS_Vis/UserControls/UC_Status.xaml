@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="TSMS_Vis.UserControls.UC_Status"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TSMS_Vis.UserControls"
+             xmlns:res="clr-namespace:TSMS_Vis.Resources"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../TSMS_Style.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel>
+            <WrapPanel Height="30" HorizontalAlignment="Right" Margin="5,0,5,0">
+                <Label Content="{x:Static res:Resource.CONNECTION_TO_MASTER}" VerticalAlignment="Center"/>
+                <CheckBox x:Name="cbMasterReady" Margin ="10,0,5,0" Style="{StaticResource GreenLED}" IsChecked="False" IsEnabled="False"/>
+                <CheckBox x:Name="cbMasterError" Margin ="5,0,10,0" Style="{StaticResource RedLED}" IsChecked="True" IsEnabled="False"/>
+                <Button x:Name="btnMaster" Margin ="0,3,0,3" Width="75" IsEnabled="False" Visibility="Hidden">Reset</Button>
+            </WrapPanel>
+            <WrapPanel Height="30" HorizontalAlignment="Right" Margin="5,0,5,0">
+                <Label Content="{x:Static res:Resource.MEASUREMENT_DEVICES}" VerticalAlignment="Center"/>
+                <CheckBox x:Name="cbDevicesReady" Margin ="10,0,5,0" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <CheckBox x:Name="cbDevicesError" Margin ="5,0,10,0" Style="{StaticResource RedLED}" IsChecked="True"/>
+                <Button x:Name="btnDevices" Content="{x:Static res:Resource.BTN_RESET}" Margin ="0,3,0,3" Width="75" IsEnabled="False" Click="btnDevicesClick"/>
+            </WrapPanel>
+            <WrapPanel Height="30" HorizontalAlignment="Right" Margin="5,0,5,0">
+                <Label Content="{x:Static res:Resource.DATABASE}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <CheckBox x:Name="cbDatabaseReady" Margin ="10,0,5,0" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <CheckBox x:Name="cbDatabaseError" Margin ="5,0,10,0" Style="{StaticResource RedLED}" IsChecked="True"/>
+                <Button x:Name="btnDatabase" Content="{x:Static res:Resource.BTN_RESET}" Margin ="0,3,0,3" Width="75" IsEnabled="False" Click="btnDatabaseClick"/>
+            </WrapPanel>
+            <WrapPanel Height="30" HorizontalAlignment="Right" Margin="5,0,5,0">
+                <Label Content="{x:Static res:Resource.DIGITAL_IO}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <CheckBox x:Name="cbDigitalIOReady" Margin ="10,0,5,0" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <CheckBox x:Name="cbDigitalIOError" Margin ="5,0,10,0" Style="{StaticResource RedLED}" IsChecked="True"/>
+                <Button x:Name="btnDigitalIO" Content="{x:Static res:Resource.BTN_RESET}" Margin ="0,3,0,3" Width="75" IsEnabled="False" Click="btnDigitalIOClick"/>
+            </WrapPanel>
+            <WrapPanel Height="30" HorizontalAlignment="Right" Margin="5,0,5,0">
+                <Label Content="{x:Static res:Resource.RS232_COM}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <CheckBox x:Name="cbRS232Ready" Margin ="10,0,5,0" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <CheckBox x:Name="cbRS232Error" Margin ="5,0,10,0" Style="{StaticResource RedLED}" IsChecked="True"/>
+                <Button x:Name="btnRS232" Content="{x:Static res:Resource.BTN_RESET}" Margin ="0,3,0,3" Width="75" IsEnabled="False" Click="btnRS232Click"/>
+            </WrapPanel>
+            <WrapPanel Height="Auto" HorizontalAlignment="Right" Margin="5,20,5,0" Width="Auto">
+                <Label Content="PAT minták:" VerticalAlignment="Center"/>
+                <Label x:Name="lblRestPatSamples" Content="0" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <Button x:Name="btnRestartPATSampling" Content="{x:Static res:Resource.BTN_RESTART_PAT}" Margin ="0,3,0,3" Padding="3" Width="Auto" IsEnabled="True" Click="btnRestartNarrowing_Click"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

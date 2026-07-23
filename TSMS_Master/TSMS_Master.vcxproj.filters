@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="NI">
+      <UniqueIdentifier>{b33bb38a-dd90-4e9a-bfd9-3b1c89f72e92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\Meter">
+      <UniqueIdentifier>{dfba0c40-902f-471f-9bc3-1cfa30c05e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\db">
+      <UniqueIdentifier>{af9ff196-dc8c-40cf-9581-c60ffaba6747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Machine">
+      <UniqueIdentifier>{ce7fbad1-ec20-459e-8e01-3c52edc17973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{9eaeb431-12f6-4381-9440-329afbb7ad84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\common">
+      <UniqueIdentifier>{cddecbe4-0d16-4e91-a225-361793625990}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TSMS_Master.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\Meter.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\MeterGPIB.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\MeterTCP.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\MeterSim.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="MeasuredValue.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\DeviceHandler.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="Machine\DAQmxIO.cpp">
+      <Filter>src\Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="Machine\DIOHandler.cpp">
+      <Filter>src\Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="Machine\RS232.cpp">
+      <Filter>src\Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="Machine\ComHandler.cpp">
+      <Filter>src\Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TestConfig.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="db\ValueTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="db\LotTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="db\TestTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="db\BaseTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="db\SQLConnection.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="Counter.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\DataToSend.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="LotData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="db\DBHandler.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIHandler.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UDPReceiver.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UDPSender.cpp">
+      <Filter>src\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Handler.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\LaserData.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\tcp.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\DeviceConfig.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="common\IniFile.cpp">
+      <Filter>src\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Meter\CompensationHandler.cpp">
+      <Filter>src\Meter</Filter>
+    </ClCompile>
+    <ClCompile Include="db\BufferTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="Machine\SimIO.cpp">
+      <Filter>src\Machine</Filter>
+    </ClCompile>
+    <ClCompile Include="db\ConfigTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+    <ClCompile Include="PAThandler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="db\PatTable.cpp">
+      <Filter>src\db</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="extern\NIDAQmx.h">
+      <Filter>NI</Filter>
+    </ClInclude>
+    <ClInclude Include="NI\ni4882.h">
+      <Filter>NI</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\Meter.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\MeterGPIB.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\MeterTCP.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\MeterSim.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="MeasuredValue.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\DeviceHandler.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="Machine\DAQmxIO.h">
+      <Filter>src\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Machine\DIOHandler.h">
+      <Filter>src\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Machine\RS232.h">
+      <Filter>src\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Machine\ComHandler.h">
+      <Filter>src\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultBuffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="TestConfig.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="const.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="db\ValueTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\LotTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\TestTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\BaseTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="db\SQLConnection.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="Counter.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\DataToSend.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="LotData.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="db\DBHandler.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIHandler.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UDPReceiver.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UDPSender.h">
+      <Filter>src\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Handler.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\LaserData.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\tcp.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\DeviceConfig.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyBuffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="common\DateTime.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\IniFile.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Meter\CompensationHandler.h">
+      <Filter>src\Meter</Filter>
+    </ClInclude>
+    <ClInclude Include="db\BufferTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="Machine\BaseIO.h">
+      <Filter>src\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="Machine\SimIO.h">
+      <Filter>src\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="db\ConfigTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Logger.h">
+      <Filter>src\common</Filter>
+    </ClInclude>
+    <ClInclude Include="PAThandler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="db\PatTable.h">
+      <Filter>src\db</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="NI\NIDAQmx.lib">
+      <Filter>NI</Filter>
+    </Library>
+    <Library Include="NI\ni4882_32.lib">
+      <Filter>NI</Filter>
+    </Library>
+    <Library Include="NI\visa32.lib">
+      <Filter>NI</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

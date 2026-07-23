@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="TSMS_Vis.UserControls.UC_MachineSignals"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TSMS_Vis.UserControls"
+             xmlns:res="clr-namespace:TSMS_Vis.Resources"
+             mc:Ignorable="d" 
+             d:DesignHeight="220" d:DesignWidth="200">
+    
+    <UserControl.Resources>
+        <ResourceDictionary Source="../TSMS_Style.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Margin="5">
+            <WrapPanel>
+                <CheckBox x:Name="cbMachineReady" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_MACHINE_READY}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbMachineEmpty" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_MACHINE_EMPTY}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbLotInProgress" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_LOT_IN_PROGRESS}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbLotStart" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_LOT_START}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbLotEnd" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_LOT_END}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbLotPause" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_LOT_PAUSE}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbLotDiscard" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_LOT_DISCARD}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbCompensation" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_COMPENSATION}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbEDummy" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_EDUMMY}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <CheckBox x:Name="cbInitialization" Style="{StaticResource GreenLED}" IsChecked="False"/>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Left" Content="{x:Static res:Resource.SIG_INITIALIZATION}"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="TSMS_Vis.Report.ReportHistTable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TSMS_Vis.Report"
+             xmlns:res="clr-namespace:TSMS_Vis.Resources"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <ListView x:Name="lvHistTable">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Right" />
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontSize" Value="7"/>
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="70" DisplayMemberBinding="{Binding From}">
+                        <GridViewColumnHeader TextElement.FontSize="10" Content="{x:Static res:ReportRes.FROM_LC}"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="70" DisplayMemberBinding="{Binding To}">
+                        <GridViewColumnHeader TextElement.FontSize="10" Content="{x:Static res:ReportRes.TO_LC}"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="70" DisplayMemberBinding="{Binding Items}">
+                        <GridViewColumnHeader TextElement.FontSize="10" Content="{x:Static res:ReportRes.QUANTITY}"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="70" DisplayMemberBinding="{Binding Percent}">
+                        <GridViewColumnHeader TextElement.FontSize="10">%</GridViewColumnHeader>
+                    </GridViewColumn>
+                    <!--<GridViewColumn Header="von" Width="70" DisplayMemberBinding="{Binding From}" />-->
+                    <!--<GridViewColumn Header="bis" Width="70" DisplayMemberBinding="{Binding To}" />--><!--
+                    <GridViewColumn Header="Anzahl" Width="70" DisplayMemberBinding="{Binding Items}" />
+                    <GridViewColumn Header="%" Width="70" DisplayMemberBinding="{Binding Percent}" />-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

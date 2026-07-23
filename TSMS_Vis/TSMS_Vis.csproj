@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC7D7C6E-2C82-45EA-8DF2-87D0209FA9D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TSMS_Vis</RootNamespace>
+    <AssemblyName>TSMS_Vis</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Icon1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.5.0.0\lib\net48\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CLF-Code\BasicTypes.cs" />
+    <Compile Include="CLF-Code\ChartMethods.cs" />
+    <Compile Include="Communication\SendCmd.cs" />
+    <Compile Include="Communication\TSMS_PATUpdate.cs" />
+    <Compile Include="Communication\TSMS_UserMessage.cs" />
+    <Compile Include="Communication\TSMS_CompStatus.cs" />
+    <Compile Include="Communication\TSMS_Status.cs" />
+    <Compile Include="Communication\TSMS_MachineSignals.cs" />
+    <Compile Include="Communication\TSMS_Setup.cs" />
+    <Compile Include="Communication\TSMS_Counter.cs" />
+    <Compile Include="Communication\TSMS_LotData.cs" />
+    <Compile Include="Communication\TSMS_MeasuredValue.cs" />
+    <Compile Include="Communication\EventArgs.cs" />
+    <Compile Include="Communication\UDPReceiver.cs" />
+    <Compile Include="Communication\UDPSender.cs" />
+    <Compile Include="CompWindow.xaml.cs">
+      <DependentUpon>CompWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DbHandler.cs" />
+    <Compile Include="Helper\AppHelper.cs" />
+    <Compile Include="Helper\Converters.cs" />
+    <Compile Include="Helper\FileSystem.cs" />
+    <Compile Include="Helper\IniFile.cs" />
+    <Compile Include="Helper\WinFormsCompatiblity.cs" />
+    <Compile Include="LabelPrinter\LabelprinterInterface.cs" />
+    <Compile Include="LabelPrinter\Sato.cs" />
+    <Compile Include="LabelPrinter\Zebra.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="MessageDialog.xaml.cs" />
+    <Compile Include="NarrowingSelectorDialog.xaml.cs">
+      <DependentUpon>NarrowingSelectorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\PdfFilePrinter.cs" />
+    <Compile Include="Report\ReportData.cs" />
+    <Compile Include="Report\ReportErrorDetail.xaml.cs">
+      <DependentUpon>ReportErrorDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportLimits.cs" />
+    <Compile Include="Report\ReportMachineCounters.xaml.cs">
+      <DependentUpon>ReportMachineCounters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportErrorSummary.xaml.cs">
+      <DependentUpon>ReportErrorSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportHeader.xaml.cs">
+      <DependentUpon>ReportHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportHistTable.xaml.cs">
+      <DependentUpon>ReportHistTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportNarrowingSections.xaml.cs">
+      <DependentUpon>ReportNarrowingSections.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportNarrowing.xaml.cs">
+      <DependentUpon>ReportNarrowing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage2.xaml.cs">
+      <DependentUpon>ReportPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage1.xaml.cs">
+      <DependentUpon>ReportPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage3.xaml.cs">
+      <DependentUpon>ReportPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage4.xaml.cs">
+      <DependentUpon>ReportPage4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage5.xaml.cs">
+      <DependentUpon>ReportPage5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportPage6.xaml.cs">
+      <DependentUpon>ReportPage6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Report.cs" />
+    <Compile Include="Report\ReportMeasTable.xaml.cs">
+      <DependentUpon>ReportMeasTable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReportDialog.xaml.cs">
+      <DependentUpon>PrintReportDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RePrintLabelDialog.xaml.cs">
+      <DependentUpon>RePrintLabelDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ReportRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TSMS_Consts.cs" />
+    <Compile Include="UserControls\UC_HistogramModule.xaml.cs">
+      <DependentUpon>UC_HistogramModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Histogram.xaml.cs">
+      <DependentUpon>UC_Histogram.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Probability.xaml.cs">
+      <DependentUpon>UC_Probability.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_ProbabilityModule.xaml.cs">
+      <DependentUpon>UC_ProbabilityModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Spinner.xaml.cs">
+      <DependentUpon>UC_Spinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_TestConfigPanel.xaml.cs">
+      <DependentUpon>UC_TestConfigPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_CounterPanel.xaml.cs">
+      <DependentUpon>UC_CounterPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_MachineSignals.xaml.cs">
+      <DependentUpon>UC_MachineSignals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Status.xaml.cs">
+      <DependentUpon>UC_Status.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_TrendModule.xaml.cs">
+      <DependentUpon>UC_TrendModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WodiExport.cs" />
+    <Page Include="CompWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NarrowingSelectorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\ReportErrorDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\ReportMachineCounters.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportErrorSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\ReportHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\ReportHistTable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Report\ReportNarrowingSections.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportNarrowing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportPage3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportPage4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportMeasTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrintReportDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportPage5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report\ReportPage6.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RePrintLabelDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TSMS_Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_HistogramModule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_Histogram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_Probability.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_ProbabilityModule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_Spinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_TestConfigPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_CounterPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_MachineSignals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_Status.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_TrendModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ReportRes.de.resx" />
+    <EmbeddedResource Include="Resources\ReportRes.hu.resx" />
+    <EmbeddedResource Include="Resources\ReportRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ReportRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.de.resx" />
+    <EmbeddedResource Include="Resources\Resource.hu.resx" />
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Page Include="MessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TDKLogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

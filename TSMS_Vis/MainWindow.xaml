@@ -1,0 +1,275 @@
+﻿<Window x:Class="TSMS_Vis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TSMS_Vis"
+        xmlns:uc="clr-namespace:TSMS_Vis.UserControls"
+        xmlns:res="clr-namespace:TSMS_Vis.Resources"
+        mc:Ignorable="d"
+        Title="TDK - TSMS Visualization" Height="1040" Width="1440"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        AllowsTransparency="False" WindowState="Maximized">
+
+    <Window.Resources>
+        <ResourceDictionary Source="TSMS_Style.xaml" />
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Left"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="{x:Static res:Resource.MENU_ITEM_FILE}" HorizontalAlignment="Left">
+                <MenuItem Header="{x:Static res:Resource.MENU_ITEM_EXIT}" Click="MenuItemExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="{x:Static res:Resource.MENU_ITEM_CHARTS}" HorizontalAlignment="Left">
+                <MenuItem x:Name="mnuShowPATHisto" Header="{x:Static res:Resource.MENU_ITEM_SHOWPATHISTO}" IsCheckable="True" IsChecked="True"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Background="{StaticResource gray}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="White" Height="75" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <WrapPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="10, 0, 10, 0">
+                    <Label Content="{x:Static res:Resource.MACHINE}" VerticalAlignment="Center"/>
+                    <Label Content="XXX" x:Name="lMachine" FontSize="20" Width="150" VerticalAlignment="Center"/>
+                </WrapPanel>
+                <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" Margin="10, 0, 10, 0">
+                    <Label x:Name="lStatus"  Foreground="Green" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Content=""/>
+                    <Label x:Name="lErrorMsg" Foreground="DarkBlue" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" Content=""/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,10,30,10">
+                        <Label x:Name="lLanguage" Content="{x:Static res:Resource.LANGUAGE}" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="cbLanguage" Width="100" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                    </WrapPanel>
+                    <Image Height="40" Margin="10" Stretch="Uniform" Source="Images/TDKLogo1.png"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="71*" />
+                        <ColumnDefinition Width="30*" />
+                        <ColumnDefinition Width="183*"/>
+                    </Grid.ColumnDefinitions>
+                    <TabControl Grid.Column="0" Margin="0,0,5,10">
+                        <TabItem Header="{x:Static res:Resource.LOT_INFO}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="70"/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" HorizontalAlignment="Left" Margin="10,20,10,10">
+                                    <WrapPanel HorizontalAlignment="Right" Margin="5">
+                                        <Label Content="{x:Static res:Resource.LOT_NUMBER}" />
+                                        <TextBox x:Name="tbLotNumber" Width="200" Height="25" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                                    </WrapPanel>
+                                    <WrapPanel HorizontalAlignment="Right" Margin="5">
+                                        <Label Content="{x:Static res:Resource.TEST_PLAN}" />
+                                        <TextBox x:Name="tbTestPlan" Width="200" Height="25" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                                    </WrapPanel>
+                                    <WrapPanel HorizontalAlignment="Right" Margin="5">
+                                        <Label Content="{x:Static res:Resource.LINE}" />
+                                        <TextBox x:Name="tbLineId" Width="200" Height="25" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                                    </WrapPanel>
+                                    <StackPanel VerticalAlignment="Center" Margin="10,20,10,10">
+                                        <WrapPanel HorizontalAlignment="Right">
+                                            <Label Content="{x:Static res:Resource.REST_DUMMY}" />
+                                            <Label Content="0" x:Name="lRestDummy" FontWeight="Bold"/>
+                                            <Label Content="{x:Static res:Resource.REST_TIME_H}"/>
+                                        </WrapPanel>
+                                        <WrapPanel HorizontalAlignment="Right">
+                                            <Label Content="{x:Static res:Resource.REST_COMPENSTAION}" />
+                                            <Label Content="0" x:Name="lRestComp" FontWeight="Bold"/>
+                                            <Label Content="{x:Static res:Resource.REST_TIME_H}"/>
+                                        </WrapPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button x:Name="btnPrintLabel" Content="{x:Static res:Resource.BTN_PRINT_LABEL}" MinWidth="100" Height="50" Margin ="10" Padding="10" IsEnabled="False" Click="PrintLabelClick"/>
+                                </StackPanel>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="{x:Static res:Resource.ADVANCED}">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                <Button x:Name="btnPrintLabelGUI" Content="{x:Static res:Resource.BTN_REPRINT_LABEL}" Width="Auto" Height="50" Margin ="10" Padding="10" Click="PrintLabelAdvanced"/>
+                                <Button x:Name="btnPrintDocument" Content="{x:Static res:Resource.BTN_PRINT_REPORT}" Width="Auto" Height="50" Margin ="10" Padding="10" Click="btnPrintDocument_Click"/>
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+                    <TabControl Grid.Column="1"  Margin="5,0,0,10" Grid.ColumnSpan="2">
+                        <TabItem Header="{x:Static res:Resource.TAB_STATUS}">
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical" Margin="10,0,0,10">
+                                        <Label Content="{x:Static res:Resource.MACHINE_SIGNALS}"/>
+                                        <Border BorderBrush="{StaticResource gray}" BorderThickness="2">
+                                            <uc:UC_MachineSignals x:Name= "ioPanel"/>
+                                        </Border>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Margin="30,0,0,10">
+                                        <Label Content="{x:Static res:Resource.TSMS_STATUS}"/>
+                                        <Border BorderBrush="{StaticResource gray}" BorderThickness="2">
+                                            <uc:UC_Status x:Name= "statusPanel" 
+                                                          InitRS232Click="statusPanel_InitRS232Click" 
+                                                          InitDatabaseClick="statusPanel_InitDatabaseClick" 
+                                                          InitDevivesClick="statusPanel_InitDevicesClick" 
+                                                          InitDigitalIOClick="statusPanel_InitDigitalIOClick"
+                                                          RestartPATClick="statusPanel_RestartPATClick"/>
+                                        </Border>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Margin="30,0,0,10">
+                                        <Label Content="{x:Static res:Resource.COUNTER}"/>
+                                        <Border BorderBrush="{StaticResource gray}" BorderThickness="2">
+                                            <uc:UC_CounterPanel x:Name= "CounterPanel"/>
+                                        </Border>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </Grid>
+            <TabControl Grid.Row="2" Margin="10,0,10,10" SelectionChanged="TabControl_SelectionChanged">
+                <TabItem Header="Trend 1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+                            <Button Content="{x:Static res:Resource.BTN_RESETZOOM}" Width="Auto" Padding="3" Click="btnResetZoom_Click"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <uc:UC_TrendModule x:Name= "TrendModule1" Grid.Row="1" Grid.Column="0" Type="0" TypeChanged="TrendModule_TypeChanged"/>
+                            <uc:UC_TrendModule x:Name= "TrendModule2" Grid.Row="1" Grid.Column="1" Type="1" TypeChanged="TrendModule_TypeChanged"/>
+                            <uc:UC_TrendModule x:Name= "TrendModule3" Grid.Row="1" Grid.Column="2" Type="2" TypeChanged="TrendModule_TypeChanged"/>
+                            <uc:UC_TrendModule x:Name= "TrendModule4" Grid.Row="1" Grid.Column="3" Type="3" TypeChanged="TrendModule_TypeChanged"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Trend 2" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+                            <Button Content="Reset Zoom" Width="70" HorizontalAlignment="Right" Click="btnResetZoom_Click"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <uc:UC_TrendModule x:Name= "TrendModule5" Grid.Row="1" Grid.Column="0" Type="4" TypeChanged="TrendModule_TypeChanged"/>
+                            <uc:UC_TrendModule x:Name= "TrendModule6" Grid.Row="1" Grid.Column="1" Type="5" TypeChanged="TrendModule_TypeChanged"/>
+                            <uc:UC_TrendModule x:Name= "TrendModule7" Grid.Row="1" Grid.Column="2" Type="6" TypeChanged="TrendModule_TypeChanged"/>
+                            <uc:UC_TrendModule x:Name= "TrendModule8" Grid.Row="1" Grid.Column="3" Type="7" TypeChanged="TrendModule_TypeChanged"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabHist1" Header="{x:Static res:Resource.TAB_HIST1}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+                            <Button Content="Refresh" Width="70" HorizontalAlignment="Right" Click="btnRefresh"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <uc:UC_HistogramModule x:Name= "Histogram1" Grid.Column="0" Type="0" />
+                            <uc:UC_HistogramModule x:Name= "Histogram2" Grid.Column="1" Type="1"/>
+                            <uc:UC_HistogramModule x:Name= "Histogram3" Grid.Column="2" Type="2" />
+                            <uc:UC_HistogramModule x:Name= "Histogram4" Grid.Column="3" Type="3"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem  x:Name="TabHist2" Header="{x:Static res:Resource.TAB_HIST2}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+                            <Button Content="Refresh" Width="70" HorizontalAlignment="Right" Click="btnRefresh"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <uc:UC_HistogramModule x:Name= "Histogram5" Grid.Column="0" Type="4" />
+                            <uc:UC_HistogramModule x:Name= "Histogram6" Grid.Column="1" Type="5"/>
+                            <uc:UC_HistogramModule x:Name= "Histogram7" Grid.Column="2" Type="6" />
+                            <uc:UC_HistogramModule x:Name= "Histogram8" Grid.Column="3" Type="7"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TabProb" Header="{x:Static res:Resource.TAB_PROBABILITY}" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5">
+                            <Button Content="Refresh" Width="70" HorizontalAlignment="Right" Click="btnRefresh"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <uc:UC_ProbabilityModule x:Name= "Probability1" Grid.Column="0" Type="0"/>
+                            <uc:UC_ProbabilityModule x:Name= "Probability2" Grid.Column="1" Type="1"/>
+                            <uc:UC_ProbabilityModule x:Name= "Probability3" Grid.Column="2" Type="2"/>
+                            <uc:UC_ProbabilityModule x:Name= "Probability4" Grid.Column="3" Type="3"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{x:Static res:Resource.TEST_PLAN}" >
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid  Background="{StaticResource white}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20">
+                                <uc:UC_TestConfigPanel x:Name="TestConfigPanel"/>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </DockPanel>
+</Window>

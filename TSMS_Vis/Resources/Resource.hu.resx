@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ADVANCED" xml:space="preserve">
+    <value>Haladó funkciók</value>
+  </data>
+  <data name="BTN_CANCEL" xml:space="preserve">
+    <value>Mégse</value>
+  </data>
+  <data name="BTN_CLOSE" xml:space="preserve">
+    <value>Bezár</value>
+  </data>
+  <data name="BTN_PRINT" xml:space="preserve">
+    <value>Jegyzőkönyv mentés ...</value>
+  </data>
+  <data name="BTN_PRINT_LABEL" xml:space="preserve">
+    <value>Címkenyomtatás</value>
+  </data>
+  <data name="BTN_PRINT_REPORT" xml:space="preserve">
+    <value>Jegyzőkönyv generálás ...</value>
+  </data>
+  <data name="BTN_REPRINT_LABEL" xml:space="preserve">
+    <value>Címke újranyomtatás ...</value>
+  </data>
+  <data name="BTN_RESET" xml:space="preserve">
+    <value>Reszet</value>
+  </data>
+  <data name="BTN_RESETZOOM" xml:space="preserve">
+    <value>Zoom alaphelyzet</value>
+  </data>
+  <data name="BTN_RESTART_PAT" xml:space="preserve">
+    <value>PAT mintavételezés újraindítása</value>
+  </data>
+  <data name="CONNECTION_TO_MASTER" xml:space="preserve">
+    <value>Kapcsolódás a Master-hez</value>
+  </data>
+  <data name="COUNTER" xml:space="preserve">
+    <value>Számláló</value>
+  </data>
+  <data name="COUNTER_FAIL" xml:space="preserve">
+    <value>Kieső</value>
+  </data>
+  <data name="COUNTER_HIGH" xml:space="preserve">
+    <value>Magas</value>
+  </data>
+  <data name="COUNTER_LOW" xml:space="preserve">
+    <value>Alacsony</value>
+  </data>
+  <data name="COUNTER_NAME" xml:space="preserve">
+    <value>Név</value>
+  </data>
+  <data name="COUNTER_PASS" xml:space="preserve">
+    <value>Jó</value>
+  </data>
+  <data name="COUNTER_TOTAL" xml:space="preserve">
+    <value>Összes</value>
+  </data>
+  <data name="DATABASE" xml:space="preserve">
+    <value>Adatbázis</value>
+  </data>
+  <data name="DIGITAL_IO" xml:space="preserve">
+    <value>Digitális I/O</value>
+  </data>
+  <data name="ENGLISH" xml:space="preserve">
+    <value>Angol</value>
+  </data>
+  <data name="GERMAN" xml:space="preserve">
+    <value>Német</value>
+  </data>
+  <data name="GOOD" xml:space="preserve">
+    <value>Jó</value>
+  </data>
+  <data name="HUNGARIAN" xml:space="preserve">
+    <value>Magyar</value>
+  </data>
+  <data name="LANGUAGE" xml:space="preserve">
+    <value>nyelv</value>
+  </data>
+  <data name="LINE" xml:space="preserve">
+    <value>Sor</value>
+  </data>
+  <data name="LOT" xml:space="preserve">
+    <value>Los</value>
+  </data>
+  <data name="LOT_INFO" xml:space="preserve">
+    <value>Los információ</value>
+  </data>
+  <data name="LOT_NUMBER" xml:space="preserve">
+    <value>Los szám</value>
+  </data>
+  <data name="MACHINE" xml:space="preserve">
+    <value>Gép</value>
+  </data>
+  <data name="MACHINE_SIGNALS" xml:space="preserve">
+    <value>Gép jelek</value>
+  </data>
+  <data name="MEASUREMENT_DEVICES" xml:space="preserve">
+    <value>Mérőeszközök</value>
+  </data>
+  <data name="MENU_ITEM_CHARTS" xml:space="preserve">
+    <value>Grafikonok</value>
+  </data>
+  <data name="MENU_ITEM_EXIT" xml:space="preserve">
+    <value>_Kilépés</value>
+  </data>
+  <data name="MENU_ITEM_FILE" xml:space="preserve">
+    <value>_Fájl</value>
+  </data>
+  <data name="MENU_ITEM_SHOWPATHISTO" xml:space="preserve">
+    <value>PAT szűkített hisztogramok megjelenítése</value>
+  </data>
+  <data name="MSG_PAT_RESTART" xml:space="preserve">
+    <value>Valóban újraindítja a PAT mintavételezési folyamatot?</value>
+  </data>
+  <data name="MSG_SWITCH_LANGUAGE" xml:space="preserve">
+    <value>Nyelv váltáshoz újra kell indítani a programot. Újraindítja most?</value>
+  </data>
+  <data name="PRODUCT" xml:space="preserve">
+    <value>Termék</value>
+  </data>
+  <data name="REST_COMPENSTAION" xml:space="preserve">
+    <value>Kompenzációig még:</value>
+  </data>
+  <data name="REST_DUMMY" xml:space="preserve">
+    <value>Dummy tesztig még:</value>
+  </data>
+  <data name="REST_TIME_H" xml:space="preserve">
+    <value>óra</value>
+  </data>
+  <data name="RS232_COM" xml:space="preserve">
+    <value>RS232 Interfész</value>
+  </data>
+  <data name="SIG_COMPENSATION" xml:space="preserve">
+    <value>Kompenzáció</value>
+  </data>
+  <data name="SIG_EDUMMY" xml:space="preserve">
+    <value>E-Dummy</value>
+  </data>
+  <data name="SIG_INITIALIZATION" xml:space="preserve">
+    <value>Inicializálás</value>
+  </data>
+  <data name="SIG_LOT_DISCARD" xml:space="preserve">
+    <value>Lot eldobás</value>
+  </data>
+  <data name="SIG_LOT_END" xml:space="preserve">
+    <value>Los befejezés</value>
+  </data>
+  <data name="SIG_LOT_IN_PROGRESS" xml:space="preserve">
+    <value>Los folyamatban</value>
+  </data>
+  <data name="SIG_LOT_PAUSE" xml:space="preserve">
+    <value>Los felfüggesztés</value>
+  </data>
+  <data name="SIG_LOT_START" xml:space="preserve">
+    <value>Los indítás</value>
+  </data>
+  <data name="SIG_MACHINE_EMPTY" xml:space="preserve">
+    <value>Gép üres</value>
+  </data>
+  <data name="SIG_MACHINE_READY" xml:space="preserve">
+    <value>Gép üzemkész</value>
+  </data>
+  <data name="START_TIME" xml:space="preserve">
+    <value>Indítási idő</value>
+  </data>
+  <data name="STATE_COMPENSATION" xml:space="preserve">
+    <value>Kompezáció mód</value>
+  </data>
+  <data name="STATE_DB_ERROR" xml:space="preserve">
+    <value>Adatbázis hiba</value>
+  </data>
+  <data name="STATE_DEVICE_ERROR" xml:space="preserve">
+    <value>Mérőeszköz hiba</value>
+  </data>
+  <data name="STATE_IO_ERROR" xml:space="preserve">
+    <value>I/O kártya hiba</value>
+  </data>
+  <data name="STATE_MEASUREMENT_EVALUATE" xml:space="preserve">
+    <value>Mérés kiértékelés</value>
+  </data>
+  <data name="STATE_MEASUREMENT_RUNNING" xml:space="preserve">
+    <value>Mérés folyamatban</value>
+  </data>
+  <data name="STATE_READY_FOR_NEW_LOT" xml:space="preserve">
+    <value>Új Los indítható</value>
+  </data>
+  <data name="STATE_READY_TO_MEASURE" xml:space="preserve">
+    <value>Mérés indítható</value>
+  </data>
+  <data name="STATE_RS232_ERROR" xml:space="preserve">
+    <value>RS232 kommunikációs hiba</value>
+  </data>
+  <data name="STATE_SHUTDOWN" xml:space="preserve">
+    <value>Leállítási kérelem</value>
+  </data>
+  <data name="STATE_WAIT_UNTIL_LOT_IN_PROGRESS" xml:space="preserve">
+    <value>Kérem várjon amíg a Los folyamatban van</value>
+  </data>
+  <data name="STATUS" xml:space="preserve">
+    <value>Státusz</value>
+  </data>
+  <data name="TAB_HIST1" xml:space="preserve">
+    <value>Hisztogram 1</value>
+  </data>
+  <data name="TAB_HIST2" xml:space="preserve">
+    <value>Hisztogram 2</value>
+  </data>
+  <data name="TAB_PROBABILITY" xml:space="preserve">
+    <value>Valószínűség</value>
+  </data>
+  <data name="TAB_STATUS" xml:space="preserve">
+    <value>Státusz</value>
+  </data>
+  <data name="TEST_PLAN" xml:space="preserve">
+    <value>Teszt terv</value>
+  </data>
+  <data name="TITLE_PRINT_REPORT" xml:space="preserve">
+    <value>Jegyzőkönyv generálás</value>
+  </data>
+  <data name="TOTAL" xml:space="preserve">
+    <value>Összesen</value>
+  </data>
+  <data name="TSMS_STATUS" xml:space="preserve">
+    <value>TSMS állapot</value>
+  </data>
+  <data name="START_DATE" xml:space="preserve">
+    <value>Kezdő dátum</value>
+  </data>
+  <data name="END_DATE" xml:space="preserve">
+    <value>Befejező dátum</value>
+  </data>
+  <data name="REP_LOT_START" xml:space="preserve">
+    <value>LOS kezdete</value>
+  </data>
+  <data name="REP_QUERY_LOT" xml:space="preserve">
+    <value>LOS-ok lekérdezése</value>
+  </data>
+  <data name="REP_QUERY_FINISHED_LOTS" xml:space="preserve">
+    <value>Csak befejezett LOS-ok lekérdezése</value>
+  </data>
+  <data name="BTN_STARTPRINT" xml:space="preserve">
+    <value>Nyomtat</value>
+  </data>
+  <data name="BTN_REPRINT_LABEL_WND" xml:space="preserve">
+    <value>Címke újranyomtatás</value>
+  </data>
+  <data name="LABEL_CNT" xml:space="preserve">
+    <value>Címkeszámláló</value>
+  </data>
+  <data name="NARROWING_SELECTOR_DLG" xml:space="preserve">
+    <value>Szűkítési szakasz kiválasztása</value>
+  </data>
+  <data name="BTN_SELECT_LOT_SECTION" xml:space="preserve">
+    <value>LOS szekció</value>
+  </data>
+  <data name="NARROWING_STARTPROD" xml:space="preserve">
+    <value>ettől a terméktől</value>
+  </data>
+  <data name="NARROWING_ENDPROD" xml:space="preserve">
+    <value>eddig</value>
+  </data>
+  <data name="NARROWING_MODE" xml:space="preserve">
+    <value>Mód</value>
+  </data>
+  <data name="NARROWING_SAMPLECNT" xml:space="preserve">
+    <value>Minták száma</value>
+  </data>
+  <data name="NARROWING_LL_SIGMA" xml:space="preserve">
+    <value>Szigma -</value>
+  </data>
+  <data name="NARROWING_UL_SIGMA" xml:space="preserve">
+    <value>Szigma +</value>
+  </data>
+  <data name="NARROWING_MODE_NOPAT" xml:space="preserve">
+    <value>Nincs szűkítve</value>
+  </data>
+  <data name="NARROWING_PART_TO_END" xml:space="preserve">
+    <value>végig</value>
+  </data>
+  <data name="BTN_SELECT_COMPLETE_LOT" xml:space="preserve">
+    <value>Teljes Los</value>
+  </data>
+  <data name="NARROWING_MODE_STDEV" xml:space="preserve">
+    <value>Szórás</value>
+  </data>
+  <data name="NARROWING_MODE_UNKNOWN" xml:space="preserve">
+    <value>Ismeretlen</value>
+  </data>
+</root>

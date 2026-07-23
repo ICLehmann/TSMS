@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "TSMS_Vis\\TSMS_Vis.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TSMS_Core\\TSMS_Core.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

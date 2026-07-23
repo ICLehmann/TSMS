@@ -1,0 +1,55 @@
+﻿<Window x:Class="TSMS_Vis.RePrintLabelDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TSMS_Vis"
+        xmlns:res="clr-namespace:TSMS_Vis.Resources"
+        mc:Ignorable="d"
+        Title="{x:Static res:Resource.BTN_REPRINT_LABEL_WND}" Height="350" SizeToContent="Width" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+    
+    <Grid Margin="10">
+        <Grid.Resources>
+            <!-- Default settings for controls -->
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Margin" Value="0,3,5,5" />
+                <Setter Property="Padding" Value="0,0,0,5" />
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Margin" Value="0,0,0,5" />
+            </Style>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Width" Value="Auto" />
+                <Setter Property="Padding" Value="20,0,20,0" />
+                <Setter Property="Height" Value="25" />
+                <Setter Property="Margin" Value="5,0,0,0" />
+            </Style>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
+        </Grid.RowDefinitions>
+        <ListView x:Name="lvLabelToPrint" Grid.Row="0" Margin="10" IsEnabled="True" SelectionChanged="lvLabelToPrint_SelectionChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Right" />
+                    <Setter Property="Margin" Value="2"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static res:Resource.LOT}" Width="80" DisplayMemberBinding="{Binding LotNr}" />
+                    <GridViewColumn Header="{x:Static res:Resource.PRODUCT}" Width="120" DisplayMemberBinding="{Binding ProductNum}" />
+                    <GridViewColumn Header="{x:Static res:Resource.LINE}" Width="50" DisplayMemberBinding="{Binding LineId}" />
+                    <GridViewColumn Header="{x:Static res:Resource.LABEL_CNT}" Width="110" DisplayMemberBinding="{Binding LabelCounter}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="printButton" Click="printButton_Click" IsDefault="True" IsEnabled="False" Content="{x:Static res:Resource.BTN_STARTPRINT}"/>
+            <Button Name="cancelButton" IsCancel="True" Content="{x:Static res:Resource.BTN_CANCEL}"/>
+        </StackPanel>
+    </Grid>
+</Window>
