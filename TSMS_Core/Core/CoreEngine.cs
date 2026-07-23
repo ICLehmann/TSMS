@@ -27,6 +27,7 @@ public sealed class CoreEngine
 
     public async Task RunAsync(CancellationToken cancellationToken)
     {
+        // Translate config dictionaries into strongly typed module settings.
         var machineSettings = new MachineModuleSettings
         {
             MachineId = _options.MachineModule.Settings.TryGetValue("MachineId", out var machineId) ? machineId : _options.Profile.Name,
@@ -43,6 +44,7 @@ public sealed class CoreEngine
         await _meterModule.InitializeAsync(meterSettings, cancellationToken);
         if (_options.GuiUdp.Enabled)
         {
+            // Keep GUI machine name stable even when not explicitly configured.
             var machineName = _options.MachineModule.Settings.TryGetValue("MachineId", out var configuredMachineName)
                 ? configuredMachineName
                 : _options.Profile.Name;
@@ -55,6 +57,7 @@ public sealed class CoreEngine
         TransitionTo(CoreState.ReadyForNewLot);
         await _machineModule.StartAsync(cancellationToken);
 
+        // Core loop only keeps the process alive; business logic is event-driven.
         while (!cancellationToken.IsCancellationRequested && !_shutdownRequested)
         {
             await Task.Delay(100, cancellationToken);
@@ -74,6 +77,7 @@ public sealed class CoreEngine
     {
         try
         {
+            // Convert machine triggers to a single normalized CoreResult payload.
             var response = await HandleTriggerAsync(trigger);
 
             await _machineModule.PublishResultAsync(response, CancellationToken.None);
@@ -89,6 +93,7 @@ public sealed class CoreEngine
 
     private Task<CoreResult> HandleTriggerAsync(MachineTrigger trigger)
     {
+        // Central state-machine dispatch for all machine-originated trigger kinds.
         switch (trigger.Kind)
         {
             case TriggerKind.StartupRequested:
@@ -203,6 +208,7 @@ public sealed class CoreEngine
         {
             if (!string.IsNullOrWhiteSpace(item.Value))
             {
+                // Prefix keys so downstream consumers can parse values by category.
                 details[$"Result:{item.Key}"] = item.Value!;
             }
         }
@@ -319,6 +325,7 @@ public sealed class CoreEngine
             return;
         }
 
+        // Always publish a structurally complete lot payload for GUI compatibility.
         GuiLotData? lotData = _currentLotNumber > 0
             ? GuiUdpPublisher.CreateLotData(_currentLotNumber)
             : new GuiLotData
@@ -345,6 +352,7 @@ public sealed class CoreEngine
 
     private MeasurementRequest BuildMeasurementRequest(MachineTrigger trigger)
     {
+        // Build meter request dynamically based on trigger bits and profile toggles.
         var request = new MeasurementRequest
         {
             CorrelationId = trigger.CorrelationId,

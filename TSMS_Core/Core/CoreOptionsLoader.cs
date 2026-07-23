@@ -6,6 +6,7 @@ public static class CoreOptionsLoader
 {
     public static CoreOptions Load(string appSettingsPath)
     {
+        // Fail fast with explicit messages when configuration is missing or incomplete.
         if (!File.Exists(appSettingsPath))
         {
             throw new FileNotFoundException($"Configuration file not found: {appSettingsPath}");
