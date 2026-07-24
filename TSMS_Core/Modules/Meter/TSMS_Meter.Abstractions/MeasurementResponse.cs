@@ -12,6 +12,7 @@ public sealed class DeviceMeasurementResult
     public string DeviceId { get; init; } = string.Empty;
     public MeterDeviceType DeviceType { get; init; }
     public int DurationMs { get; init; }
+    public string? ErrorMessage { get; init; }
     public List<MeasurementPoint> Points { get; } = new();
 }
 
