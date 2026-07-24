@@ -22,7 +22,10 @@ public sealed class SimMeterDeviceModule : IMeterDeviceModule
         return Task.CompletedTask;
     }
 
-    public Task<DeviceMeasurementResult> MeasureDeviceAsync(MeterDeviceRequest request, CancellationToken cancellationToken)
+    public Task<DeviceMeasurementResult> MeasureDeviceAsync(
+        MeterDeviceRequest request,
+        DeviceTextConfig? deviceConfig,
+        CancellationToken cancellationToken)
     {
         // Persist simulated device instances so deviations stay stable per logical device.
         var key = $"{request.DeviceId}:{request.DeviceType}";

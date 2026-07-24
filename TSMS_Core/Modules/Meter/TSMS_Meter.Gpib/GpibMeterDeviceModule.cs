@@ -22,7 +22,10 @@ public sealed class GpibMeterDeviceModule : IMeterDeviceModule
         return Task.CompletedTask;
     }
 
-    public Task<DeviceMeasurementResult> MeasureDeviceAsync(MeterDeviceRequest request, CancellationToken cancellationToken)
+    public Task<DeviceMeasurementResult> MeasureDeviceAsync(
+        MeterDeviceRequest request,
+        DeviceTextConfig? deviceConfig,
+        CancellationToken cancellationToken)
     {
         var stopwatch = Stopwatch.StartNew();
         var allowFallback = ReadBool("Gpib:EnableSimulationFallback", true);

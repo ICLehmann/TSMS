@@ -6,6 +6,9 @@ public interface IMeterDeviceModule
     // Initialize once with shared meter settings before first measurement.
     Task InitializeAsync(MeterModuleSettings settings, CancellationToken cancellationToken);
     // Execute exactly one device request and return normalized measurement points.
-    Task<DeviceMeasurementResult> MeasureDeviceAsync(MeterDeviceRequest request, CancellationToken cancellationToken);
+    Task<DeviceMeasurementResult> MeasureDeviceAsync(
+        MeterDeviceRequest request,
+        DeviceTextConfig? deviceConfig,
+        CancellationToken cancellationToken);
     Task StopAsync(CancellationToken cancellationToken);
 }
