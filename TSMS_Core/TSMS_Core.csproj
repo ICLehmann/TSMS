@@ -5,6 +5,8 @@
     <ProjectReference Include="Modules\Machine\TSMS_Machine.Sim\TSMS_Machine.Sim.csproj" />
     <ProjectReference Include="Modules\Meter\TSMS_Meter.Abstractions\TSMS_Meter.Abstractions.csproj" />
     <ProjectReference Include="Modules\Meter\TSMS_Meter.Sim\TSMS_Meter.Sim.csproj" />
+    <ProjectReference Include="Modules\Meter\TSMS_Meter.Tcp\TSMS_Meter.Tcp.csproj" />
+    <ProjectReference Include="Modules\Meter\TSMS_Meter.Gpib\TSMS_Meter.Gpib.csproj" />
   </ItemGroup>
 
   <ItemGroup>
