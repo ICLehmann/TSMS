@@ -11,14 +11,18 @@ public sealed class DeviceHandlerMeterModule : IMeterModule
 {
     // Cache one module instance per transport to reuse connections and state.
     private readonly ConcurrentDictionary<string, IMeterDeviceModule> _transportModules = new(StringComparer.OrdinalIgnoreCase);
+    private readonly ConcurrentDictionary<string, DeviceTextConfig?> _deviceConfigs = new(StringComparer.OrdinalIgnoreCase);
     private MeterModuleSettings _settings = new();
     private int _timeoutMs;
+    private string _configDirectory = AppContext.BaseDirectory;
     private bool _initialized;
 
     public Task InitializeAsync(MeterModuleSettings settings, CancellationToken cancellationToken)
     {
         _settings = settings;
         _timeoutMs = ReadInt("DeviceHandler:TimeoutMs", 5000);
+        _configDirectory = ReadString("DeviceHandler:ConfigDirectory") ?? AppContext.BaseDirectory;
+        _deviceConfigs.Clear();
         _initialized = true;
         return Task.CompletedTask;
     }
@@ -75,10 +79,12 @@ public sealed class DeviceHandlerMeterModule : IMeterModule
         var stopwatch = Stopwatch.StartNew();
         try
         {
-            var transportName = ResolveTransportName(request);
+            var deviceConfig = GetOrLoadDeviceConfig(request.DeviceId);
+            var effectiveRequest = ApplyConfigDefaults(request, deviceConfig);
+            var transportName = ResolveTransportName(effectiveRequest, deviceConfig);
             // Dispatch to the transport-specific implementation (SIM/TCP/GPIB).
             var module = await GetOrCreateTransportModuleAsync(transportName, cancellationToken);
-            return await module.MeasureDeviceAsync(request, cancellationToken);
+            return await module.MeasureDeviceAsync(effectiveRequest, deviceConfig, cancellationToken);
         }
         catch (OperationCanceledException)
         {
@@ -120,8 +126,13 @@ public sealed class DeviceHandlerMeterModule : IMeterModule
         };
     }
 
-    private string ResolveTransportName(MeterDeviceRequest request)
+    private string ResolveTransportName(MeterDeviceRequest request, DeviceTextConfig? deviceConfig)
     {
+        if (deviceConfig is not null)
+        {
+            return deviceConfig.IsGpib ? "GPIB" : "TCP";
+        }
+
         // Resolution order: per-device override -> per-type default -> global default.
         var byDevice = ReadString($"DeviceHandler:Transport:Device:{request.DeviceId}");
         if (!string.IsNullOrWhiteSpace(byDevice))
@@ -137,6 +148,50 @@ public sealed class DeviceHandlerMeterModule : IMeterModule
 
         var defaultTransport = ReadString("DeviceHandler:Transport:Default");
         return string.IsNullOrWhiteSpace(defaultTransport) ? "SIM" : defaultTransport;
+    }
+
+    private DeviceTextConfig? GetOrLoadDeviceConfig(string deviceId)
+    {
+        if (_deviceConfigs.TryGetValue(deviceId, out var cached))
+        {
+            return cached;
+        }
+
+        var filePath = Path.Combine(_configDirectory, $"{deviceId}.txt");
+        DeviceTextConfig? loaded = null;
+        if (File.Exists(filePath))
+        {
+            loaded = DeviceTextConfigLoader.LoadFromFile(filePath);
+        }
+
+        _deviceConfigs.TryAdd(deviceId, loaded);
+        return _deviceConfigs[deviceId];
+    }
+
+    private static MeterDeviceRequest ApplyConfigDefaults(MeterDeviceRequest request, DeviceTextConfig? deviceConfig)
+    {
+        if (deviceConfig is null)
+        {
+            return request;
+        }
+
+        var effectiveStation = deviceConfig.StationNumber;
+        var effectiveTriggerDelay = deviceConfig.TriggerDelayMs;
+
+        var clone = new MeterDeviceRequest
+        {
+            DeviceId = request.DeviceId,
+            DeviceType = request.DeviceType,
+            StationNumber = effectiveStation,
+            TriggerDelayMs = effectiveTriggerDelay
+        };
+
+        foreach (var channel in request.Channels)
+        {
+            clone.Channels.Add(channel);
+        }
+
+        return clone;
     }
 
     private int ReadInt(string key, int defaultValue)

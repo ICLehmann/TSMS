@@ -22,15 +22,18 @@ public sealed class TcpMeterDeviceModule : IMeterDeviceModule
         return Task.CompletedTask;
     }
 
-    public async Task<DeviceMeasurementResult> MeasureDeviceAsync(MeterDeviceRequest request, CancellationToken cancellationToken)
+    public async Task<DeviceMeasurementResult> MeasureDeviceAsync(
+        MeterDeviceRequest request,
+        DeviceTextConfig? deviceConfig,
+        CancellationToken cancellationToken)
     {
         var stopwatch = Stopwatch.StartNew();
 
         try
         {
             // Device-specific endpoint settings intentionally mirror legacy config style.
-            var host = ReadRequired($"Tcp:{request.DeviceId}:Host");
-            var port = ReadInt($"Tcp:{request.DeviceId}:Port", 0);
+            var host = ResolveHost(request, deviceConfig);
+            var port = ResolvePort(request, deviceConfig);
             if (port <= 0)
             {
                 throw new InvalidOperationException($"Missing valid TCP port for device '{request.DeviceId}'.");
@@ -39,8 +42,9 @@ public sealed class TcpMeterDeviceModule : IMeterDeviceModule
             var connectTimeoutMs = ReadInt("Tcp:ConnectTimeoutMs", 2000);
             var readTimeoutMs = ReadInt("Tcp:ReadTimeoutMs", 2000);
             var lineEnding = ReadSetting("Tcp:LineEnding", "\r\n");
-            var startCommand = ReadSetting($"Tcp:{request.DeviceId}:StartCommand", string.Empty);
-            var readCommand = ReadSetting($"Tcp:{request.DeviceId}:ReadCommand", "READ?");
+            var startCommands = ResolveStartCommands(request, deviceConfig);
+            var readCommands = ResolveReadCommands(request, deviceConfig);
+            var waitAfterStartMs = ResolveWaitAfterStart(deviceConfig);
 
             using var client = new TcpClient();
             using var connectCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
@@ -51,13 +55,35 @@ public sealed class TcpMeterDeviceModule : IMeterDeviceModule
             stream.ReadTimeout = readTimeoutMs;
             stream.WriteTimeout = readTimeoutMs;
 
-            if (!string.IsNullOrWhiteSpace(startCommand))
+            string? rawResponse = null;
+            foreach (var startCommand in startCommands)
             {
-                await SendCommandAsync(stream, startCommand + lineEnding, cancellationToken);
+                var response = await SendAndMaybeReadAsync(stream, startCommand + lineEnding, cancellationToken);
+                if (!string.IsNullOrWhiteSpace(response))
+                {
+                    rawResponse = response;
+                }
             }
 
-            await SendCommandAsync(stream, readCommand + lineEnding, cancellationToken);
-            var rawResponse = await ReadLineAsync(stream, cancellationToken);
+            if (waitAfterStartMs > 0)
+            {
+                await Task.Delay(waitAfterStartMs, cancellationToken);
+            }
+
+            foreach (var readCommand in readCommands)
+            {
+                var response = await SendAndMaybeReadAsync(stream, readCommand + lineEnding, cancellationToken, forceRead: true);
+                if (!string.IsNullOrWhiteSpace(response))
+                {
+                    rawResponse = response;
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(rawResponse))
+            {
+                rawResponse = await ReadLineAsync(stream, cancellationToken);
+            }
+
             var values = MeterValueEvaluation.ParseCsvValues(rawResponse);
 
             var result = new DeviceMeasurementResult
@@ -70,8 +96,9 @@ public sealed class TcpMeterDeviceModule : IMeterDeviceModule
             for (var i = 0; i < request.Channels.Count; i++)
             {
                 var channel = request.Channels[i];
-                // If fewer values are returned than expected, missing values are treated as 0.0.
-                var value = i < values.Count ? values[i] : 0.0;
+                // Respect configured telegram positions if present; otherwise fallback to channel index.
+                var valueIndex = ResolveValueIndex(channel.Name, i, deviceConfig);
+                var value = valueIndex < values.Count ? values[valueIndex] : 0.0;
                 result.Points.Add(new MeasurementPoint
                 {
                     DeviceId = request.DeviceId,
@@ -102,6 +129,21 @@ public sealed class TcpMeterDeviceModule : IMeterDeviceModule
     {
         var bytes = Encoding.ASCII.GetBytes(command);
         await stream.WriteAsync(bytes, 0, bytes.Length, cancellationToken);
+    }
+
+    private async Task<string?> SendAndMaybeReadAsync(
+        NetworkStream stream,
+        string command,
+        CancellationToken cancellationToken,
+        bool forceRead = false)
+    {
+        await SendCommandAsync(stream, command, cancellationToken);
+        if (forceRead || command.Contains('?', StringComparison.Ordinal))
+        {
+            return await ReadLineAsync(stream, cancellationToken);
+        }
+
+        return null;
     }
 
     private static async Task<string> ReadLineAsync(NetworkStream stream, CancellationToken cancellationToken)
@@ -154,5 +196,64 @@ public sealed class TcpMeterDeviceModule : IMeterDeviceModule
         }
 
         return fallback;
+    }
+
+    private string ResolveHost(MeterDeviceRequest request, DeviceTextConfig? deviceConfig)
+    {
+        if (deviceConfig is not null && !string.IsNullOrWhiteSpace(deviceConfig.Address))
+        {
+            return deviceConfig.Address;
+        }
+
+        return ReadRequired($"Tcp:{request.DeviceId}:Host");
+    }
+
+    private int ResolvePort(MeterDeviceRequest request, DeviceTextConfig? deviceConfig)
+    {
+        if (deviceConfig is not null && deviceConfig.PortOrDevice > 0)
+        {
+            return deviceConfig.PortOrDevice;
+        }
+
+        return ReadInt($"Tcp:{request.DeviceId}:Port", 0);
+    }
+
+    private List<string> ResolveStartCommands(MeterDeviceRequest request, DeviceTextConfig? deviceConfig)
+    {
+        if (deviceConfig is not null && deviceConfig.StartMeasurementSequence.Count > 0)
+        {
+            return deviceConfig.StartMeasurementSequence;
+        }
+
+        var startCommand = ReadSetting($"Tcp:{request.DeviceId}:StartCommand", string.Empty);
+        return string.IsNullOrWhiteSpace(startCommand) ? new List<string>() : new List<string> { startCommand };
+    }
+
+    private List<string> ResolveReadCommands(MeterDeviceRequest request, DeviceTextConfig? deviceConfig)
+    {
+        if (deviceConfig is not null && deviceConfig.GetAnswerSequence.Count > 0)
+        {
+            return deviceConfig.GetAnswerSequence;
+        }
+
+        var readCommand = ReadSetting($"Tcp:{request.DeviceId}:ReadCommand", "READ?");
+        return string.IsNullOrWhiteSpace(readCommand) ? new List<string>() : new List<string> { readCommand };
+    }
+
+    private static int ResolveWaitAfterStart(DeviceTextConfig? deviceConfig)
+    {
+        return deviceConfig?.WaitAfterStartMs ?? 0;
+    }
+
+    private static int ResolveValueIndex(string channelName, int fallbackIndex, DeviceTextConfig? deviceConfig)
+    {
+        if (deviceConfig is null)
+        {
+            return fallbackIndex;
+        }
+
+        var valueDef = deviceConfig.Values.FirstOrDefault(v =>
+            string.Equals(v.Name, channelName, StringComparison.OrdinalIgnoreCase));
+        return valueDef is null ? fallbackIndex : valueDef.Position;
     }
 }
