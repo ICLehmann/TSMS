@@ -61,8 +61,7 @@ public sealed class GpibMeterDeviceModule : IMeterDeviceModule
         {
             DeviceId = result.DeviceId,
             DeviceType = result.DeviceType,
-            DurationMs = (int)stopwatch.ElapsedMilliseconds,
-            ErrorMessage = "Simulated fallback (no hardware adapter configured)"
+            DurationMs = (int)stopwatch.ElapsedMilliseconds
         }.WithPoints(result.Points);
 
         return Task.FromResult(result);
